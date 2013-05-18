@@ -1,0 +1,14 @@
+{
+  "name": "express_basic",
+  "private": true,
+  "scripts": {
+    "start": "node ./server.js"
+  },
+  "dependencies": {
+    "express": "3.2.x"
+  },
+  "engines": {
+    "node": "0.8.x",
+    "npm": "1.2.x"
+  }
+}
