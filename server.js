@@ -1,16 +1,7 @@
-var express = require('express'),
-	app = express();
+var port = process.env.PORT || 3000,
+	http = require('http');
 
-app.get('/foo', function (req, res) {
-	return res.send('bar');
-})
-
-// Note: dumb idea for anything other than testing
-app.get('/loaderio-:token.txt', function (req, res) {
-	return res.send('loaderio-' + req.params.token);
-})
-
-var port = process.env.PORT || 3000;
-app.listen(port, function(){
-  console.log('Server listening on port ' + port);
-});
+http.createServer(function (req, res) {
+	res.writeHead(200, { 'Content-Type': 'text/plain' });
+	res.end(req.url.substr(1, req.url.length - 5))
+}).listen(process.env.PORT || 3000);
